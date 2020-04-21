@@ -1,13 +1,46 @@
 import React from 'react'
-// import Navigation from './Navigation'
+import axios from 'axios'
 
-const Login = _ => {
-    return (
+class Login extends React.Component {
+    state = {
+        credentials: {
+            username: "",
+            password: ""
+        }
+    }
+
+    handleChange = event => {
+        this.setState({
+            credentials: {
+                ...this.state.credentials,
+                [event.target.name]: event.target.value
+            }
+        })
+    }
+
+    render () {
+        return (
         <>
-            {/* <Navigation /> */}
-            <h1>This is the login component</h1>
+            <div className = "input-value">
+                <label htmlFor = "username" id = "username">Username: </label>
+                <input 
+                    onChange = {this.handleChange} 
+                    type = "text" 
+                    name = "username" 
+                    value = {this.state.credentials.username}/>
+            </div>
+            <div className = "input-value">
+                <label htmlFor = "password" id = "password">Password: </label>
+                <input 
+                    onChange = {this.handleChange} 
+                    type = "text" 
+                    name = "password" 
+                    value = {this.state.credentials.password}/>
+            </div>
+
         </>
     )
+    }
 }
 
 export default Login
