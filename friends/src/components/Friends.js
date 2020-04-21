@@ -34,7 +34,6 @@ class Friends extends React.Component {
             <NewFriend/>
             <h2>Your Friends</h2>
             {this.state.friends.map(friend => {
-                console.log(friend)
                 return <Friend key = {friend.id} friend = {friend} />
             })}
 

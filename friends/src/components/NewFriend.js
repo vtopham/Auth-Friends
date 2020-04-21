@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { axiosWithAuth } from '../utils/axiosWithAuth'
 
 class NewFriend extends React.Component{
     
@@ -19,6 +19,14 @@ class NewFriend extends React.Component{
 
     addFriend = event => {
         event.preventDefault()
+        axiosWithAuth()
+            .post('/api/friends',this.state)
+            .then(res => {
+                console.log(res)
+            })
+            .catch(err => {
+                console.log(err)
+            })
 
     }
 
