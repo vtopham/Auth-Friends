@@ -2,6 +2,7 @@ import React from 'react'
 import { axiosWithAuth } from '../utils/axiosWithAuth'
 import axios from 'axios'
 import Friend from './Friend'
+import NewFriend from './NewFriend'
 
 class Friends extends React.Component {
     
@@ -29,8 +30,11 @@ class Friends extends React.Component {
     render() {
         return (
         <>
+            
+            <NewFriend/>
             <h2>Your Friends</h2>
             {this.state.friends.map(friend => {
+                console.log(friend)
                 return <Friend key = {friend.id} friend = {friend} />
             })}
 
