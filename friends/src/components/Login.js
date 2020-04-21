@@ -18,6 +18,20 @@ class Login extends React.Component {
         })
     }
 
+    login = event => {
+        event.preventDefault()
+        axios
+            .post('http://localhost:5000/api/login', this.state.credentials)
+            .then(res => {
+                console.log(res)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+        
+
+    }
+
     render () {
         return (
         <>
@@ -33,9 +47,12 @@ class Login extends React.Component {
                 <label htmlFor = "password" id = "password">Password: </label>
                 <input 
                     onChange = {this.handleChange} 
-                    type = "text" 
+                    type = "password" 
                     name = "password" 
                     value = {this.state.credentials.password}/>
+            </div>
+            <div className = "button">
+                <button onClick = {this.login}>Login</button>
             </div>
 
         </>
