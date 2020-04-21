@@ -3,11 +3,12 @@ import { axiosWithAuth } from '../utils/axiosWithAuth'
 
 class NewFriend extends React.Component{
     
-    state = {
-        name: "",
-        age: "",
-        email: ""
-    }
+        state = {
+            name: "",
+            age: "",
+            email: ""
+        }
+    
 
     handleChange = event => {
         event.preventDefault()
@@ -22,7 +23,7 @@ class NewFriend extends React.Component{
         axiosWithAuth()
             .post('/api/friends',this.state)
             .then(res => {
-                console.log(res)
+                this.props.getData()
             })
             .catch(err => {
                 console.log(err)
