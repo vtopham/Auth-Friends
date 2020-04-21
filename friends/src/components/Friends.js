@@ -1,13 +1,38 @@
 import React from 'react'
-// import Navigation from './Navigation'
+import { axiosWithAuth } from '../utils/axiosWithAuth'
+import axios from 'axios'
 
-const Friends = _ => {
-    return (
+class Friends extends React.Component {
+    
+    state = {
+        friends: []
+    }
+
+    componentDidMount() {
+        this.getData();
+    }
+
+    getData = () => {
+        axiosWithAuth()
+            .get('/api/friends')
+            .then(res => {
+                console.log(res)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
+
+
+
+    render() {
+        return (
         <>
-            {/* <Navigation/> */}
-            <h1>This is the friends component</h1>
+            <h2>Your Friends</h2>
+            
         </>
-    )
+        )
+    }
 }
 
 export default Friends
