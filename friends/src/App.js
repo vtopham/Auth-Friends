@@ -17,14 +17,14 @@ const AppDiv = styled.div`
     display: flex;
     justify-content: flex-end;
     text-decoration: none;
-    background: #f8bdff;
+    background: #f8bdff; 
 
     span {
       margin: 2%;
       padding: 1% 2%;
       border-radius: 5px;
-      background: #85beff;
-      // border: 1px solid #f8bdff;
+      background: #85beff; //this is the blue
+      // border: 1px solid #f8bdff; //this is the pink
       
 
       &:hover {
