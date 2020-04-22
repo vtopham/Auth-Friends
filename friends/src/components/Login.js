@@ -1,7 +1,10 @@
 import React from 'react'
 import axios from 'axios'
 
+//This is the login page, which we'll default to if the user isn't logged in
 class Login extends React.Component {
+
+    //state shape mirrors what the API needs for the post request
     state = {
         credentials: {
             username: "",
@@ -9,6 +12,7 @@ class Login extends React.Component {
         }
     }
 
+    //handle form changes to save them in state
     handleChange = event => {
         this.setState({
             credentials: {
@@ -18,12 +22,13 @@ class Login extends React.Component {
         })
     }
 
+    //handle the login with a post request
     login = event => {
         event.preventDefault()
         axios
             .post('http://localhost:5000/api/login', this.state.credentials)
             .then(res => {
-                //res.data.payload is the token
+                //res.data.payload is the token, we'll set it to local storage to access whenever we make an api call (see axiosWithAuth)
                 localStorage.setItem("token",res.data.payload)
                 this.props.history.push("/friends")
             })
@@ -34,6 +39,7 @@ class Login extends React.Component {
 
     }
 
+    //render the login page
     render () {
         return (
         <>

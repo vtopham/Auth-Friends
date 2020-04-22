@@ -34,6 +34,7 @@ class NewFriend extends React.Component{
 
     }
 
+    //render our form to the dom
     render() {
         return (
             <>
