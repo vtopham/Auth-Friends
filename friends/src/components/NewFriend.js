@@ -14,7 +14,8 @@ const NewFriendDiv = styled.div`
     
     width: 100%;
     height: 300px;
-    margin: 2%;
+    margin-bottom: 2%;
+    
     padding: 1%;
     
     background-color: #ffffff;

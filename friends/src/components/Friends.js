@@ -4,6 +4,37 @@ import axios from 'axios'
 import Friend from './Friend'
 import NewFriend from './NewFriend'
 
+import styled from 'styled-components'
+
+
+const FriendsDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .real-friends {
+        color: #FEC0E9;
+        width: 100%;
+        text-align: center;
+        
+    }
+
+    .friends-list {
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+
+    }
+
+`
+
+const DivAll = styled.div`
+    width: 100%;
+    
+
+`
+
 //This will render all of our friends, but you'll only be able to see it if you're logged in!
 class Friends extends React.Component {
     
@@ -63,16 +94,19 @@ class Friends extends React.Component {
     //render the list of friends as well as the form to add a new friend
     render() {
         return (
-        <>
+        <DivAll>
             
             <NewFriend addFriend = {this.addFriend}/>
-            <h2>Your Friends</h2>
-            {this.state.friends.map(friend => {
-                return <Friend key = {friend.id} friend = {friend} deleteFriend = {this.deleteFriend} editFriend = {this.editFriend}/>
-            })}
-
+            <FriendsDiv>
+                <h2 className = "real-friends">Who are your real friends, anyway?</h2>
+                <div className = "friends-list">
+                    {this.state.friends.map(friend => {
+                        return <Friend key = {friend.id} friend = {friend} deleteFriend = {this.deleteFriend} editFriend = {this.editFriend}/>
+                    })}
+                </div>
+            </FriendsDiv>
             
-        </>
+        </DivAll>
         )
     }
 }
