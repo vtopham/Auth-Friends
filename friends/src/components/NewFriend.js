@@ -47,6 +47,10 @@ class NewFriend extends React.Component{
                     <label htmlFor = "email">Email: </label>
                     <input onChange = {this.handleChange} type = "text" name = "email" value = {this.state.email}/>
                 </div>
+                <div className = "new-input">
+                    <label htmlFor = "doyoulikethem">Liked? </label>
+                    <input onChange = {this.handleChange} type = "text" name = "doyoulikethem" value = {this.state.doyoulikethem}/>
+                </div>
                 <div className = "new-friend-button">
                     <button onClick = {this.addFriend}>Add Friend</button>
                 </div>
