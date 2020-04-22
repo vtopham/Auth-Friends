@@ -26,6 +26,10 @@ class Friends extends React.Component {
             })
     }
 
+    addFriend = (res) => {
+        this.setState({friends: res.data})
+    }
+
     deleteFriend = (id) => {
         axiosWithAuth()
             .delete(`/api/friends/${id}`)
@@ -53,7 +57,7 @@ class Friends extends React.Component {
         return (
         <>
             
-            <NewFriend getData = {this.getData}/>
+            <NewFriend addFriend = {this.addFriend}/>
             <h2>Your Friends</h2>
             {this.state.friends.map(friend => {
                 return <Friend key = {friend.id} friend = {friend} deleteFriend = {this.deleteFriend} editFriend = {this.editFriend}/>

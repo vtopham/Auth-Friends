@@ -1,6 +1,7 @@
 import React from 'react'
 import { Route, Redirect } from 'react-router-dom'
 
+//This only routes you to the component asked for if there is a token in place!
 const PrivateRoute = ({ component: Component, ...rest}) => {
     return (
         <Route 

@@ -1,15 +1,17 @@
 import React from 'react'
 import { axiosWithAuth } from '../utils/axiosWithAuth'
 
+//This is our form for creating a new friend
 class NewFriend extends React.Component{
-    
-        state = {
-            name: "",
-            age: "",
-            email: ""
-        }
+    //state mirrors what is needed in the api call
+    state = {
+        name: "",
+        age: "",
+        email: ""
+    }
     
 
+    //this will handle form changes and save them in state
     handleChange = event => {
         event.preventDefault()
         this.setState({
@@ -18,12 +20,13 @@ class NewFriend extends React.Component{
         })
     }
 
+    //this will add our new friend to the API
     addFriend = event => {
         event.preventDefault()
         axiosWithAuth()
             .post('/api/friends',this.state)
             .then(res => {
-                this.props.getData()
+                this.props.addFriend(res)
             })
             .catch(err => {
                 console.log(err)
